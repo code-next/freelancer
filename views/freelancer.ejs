@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="public/semantic.min.css">
+    <link rel="stylesheet" href="public/style.css">
+    <title>Freelancer</title>
+</head>
+
+<body>
+    <div class="ui grid">
+        <div class="sixteen wide column">
+            <div class="ui menu">
+                <h1 class="ui header" id="siteheading">E-Lance</h1>
+                <div class="right menu">
+                    <a href="/faq" class="item">FAQ</a>
+                    <a class="item" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui grid">
+        <div class="twelve wide column">
+            <h2 class="ui header">My Jobs</h2>
+            <% jobs.forEach(function(job){ %>
+                <div class="ui menu gid-of">
+                    <h1 class="ui header">
+                        <%=job.title %>
+                    </h1>
+                    <div class="right menu">
+                        <a class="item">
+                            <a href="finished/<%= job._id %>" class="ui primary button">
+                                Finish
+                            </a>
+                        </a>
+                    </div>
+                </div>
+                <% }) %>
+
+
+
+        </div>
+        <div class="four wide column">
+            <h2 class="ui header">New Jobs Matches</h2>
+            <% newjobs.forEach(function(newjob){ %>
+                <div class="ui card">
+                    <div class="content">
+                        <div class="header">
+                            <%= newjob.title %>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h4 class="ui sub header">Details</h4>
+                        <div class="ui small feed">
+                            <div class="event">
+                                <div class="content">
+                                    <%= newjob.desc %>
+                                        <br> Budget :
+                                        <%= newjob.rate %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="extra content">
+
+                        <form class="ui grid form" method="post" action="/bid">
+                            <div class="five wide column">
+                                <h5 class="ui header">Your Bid</h5>
+                            </div>
+                            <div class="six wide column">
+                                <input name="rate" type="text" placeholder="$200">
+                                <input name="id" type="hidden" value="<%= newjob._id %>">
+                            </div>
+                            <div class="five wide column">
+                               <a href="/bid%>"> <button class="ui button">Bid</button></a>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+                </div>
+                <% }) %>
+        </div>
+    </div>
+
+
+
+
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="public/semantic.min.js"></script>
+<script>
+    $('#postjob').modal('hide');
+    $('#post-button').click(function () {
+        $('#postjob').modal('show');
+    });
+</script>
+
+</html>

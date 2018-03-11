@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="public/semantic.min.css">
+    <link rel="stylesheet" href="public/style.css">
+    <title>Freelancer</title>
+</head>
+
+<body>
+    <div class="ui grid">
+        <div class="sixteen wide column">
+            <div class="ui menu">
+                <h1 class="ui header" id="siteheading">E-Lance</h1>
+                <div class="right menu">
+                    <a href="/faq" class="item">FAQ</a>
+                    <a class="item">Post A Project</a>
+                    <a class="item" id="login-button">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-back">
+        <div class="ui grid">
+            <div class="sixteen wide column">
+                <h1 class="ui header site-slogan1">
+                    Hire Expert Freelancers For
+                    <br> Any Job Online.
+                </h1>
+                <h3 class="ui header site-slogan2">
+                    Millions of small businesses use this platform to
+                    <br> turn their ideas into reality
+                </h3>
+                <div class="ui grid">
+                    <div class="sixteen wide column buttons">
+                        <button id="recruiter-b" class="ui  blue button">I Want To Hire</button>
+                        <button id="freelancer-b" class="ui  green button">I Want To Work</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <h2>Sign Up</h2>
+
+    <form method="post" action="/signup">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="password">
+        <input type="text" name="address" placeholder="address">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="pincode" placeholder="poncode">
+        <input type="text" name="phonenumber" placeholder="phonenumber">
+        <input type="hidden" name="utype" value="2">
+        <button>Sign Up</button>
+    </form>
+    <h2>Sign Up freelancer</h2>
+
+    <form method="post" action="/signup">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="password">
+        <input type="text" name="address" placeholder="address">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="pincode" placeholder="poncode">
+        <input type="text" name="phonenumber" placeholder="phonenumber">
+        <input type="hidden" name="utype" value="1">
+        <button>Sign Up</button>
+    </form> -->
+    <form class="ui small modal form" id="login" method="POST" action="/signin">
+        <i class="close icon"></i>
+        <div class="header">
+            Login
+        </div>
+        <div class="image content">
+            <div class="description">
+                <div class="field">
+                    <label>email</label>
+                    <input name="username" type="text" placeholder="sam@email.com">
+                </div>
+                <div class="field">
+                    <label>password</label>
+                    <input name="password" type="text" placeholder="password">
+
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Cancel
+            </div>
+            <button type="submit" class="ui positive right button">
+                Login
+            </button>
+        </div>
+    </form>
+    <!-- recruiter form -->
+    <form class="ui small modal form" id="recruiter" method="POST" action="/signup">
+        <i class="close icon"></i>
+        <div class="header">
+            Recruiter
+        </div>
+        <div class="image content">
+            <div class="description">
+                <div class="field">
+                    <label>Comapany Name</label>
+                    <input name="name" type="text" placeholder="Piped Piper Inc">
+                </div>
+                <div class="field">
+                    <label>Comapany Address</label>
+                    <input name="address" type="text" placeholder="High Way Avenue">
+
+                </div>
+                <div class="field">
+                    <label>Pincode</label>
+                    <input name="pincode" type="number" placeholder="683411">
+                </div>
+                <div class="field">
+                    <label>phone Number</label>
+                    <input name="phonenumber" type="number" placeholder="9347596">
+                </div>
+                <div class="field">
+                    <label>email</label>
+                    <input name="username" type="text" placeholder="sam@email.com">
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input name="password" type="password" placeholder="*******">
+                </div>
+                <div class="field">
+                        
+                        <input name="utype" type="hidden" value="2">
+                    </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Cancel
+            </div>
+            <button type="submit" class="ui positive right button">
+                Submit
+            </button>
+        </div>
+    </form>
+
+
+   <!-- freelancer form -->
+    <form class="ui small modal form" id="freelancer" method="POST" action="/signup">
+        <i class="close icon"></i>
+        <div class="header">
+            Freelancer
+        </div>
+        <div class="image content">
+            <div class="description">
+                <div class="field">
+                    <label>Full Name</label>
+                    <input name="name" type="text" placeholder="Jared Dunn">
+                </div>
+                <div class="field">
+                    <label>Address</label>
+                    <input name="address" type="text" placeholder="High Way Avenue">
+
+                </div>
+                <div class="field">
+                    <label>Pincode</label>
+                    <input name="pincode" type="number" placeholder="683411">
+                </div>
+                <div class="field">
+                    <label>phone Number</label>
+                    <input name="phonenumber" type="number" placeholder="9347596">
+                </div>
+                <div class="field">
+                    <label>email</label>
+                    <input name="username" type="text" placeholder="sam@email.com">
+                </div>
+                <div class="field">
+                    <label>Password</label>
+                    <input name="password" type="password" placeholder="*******">
+                </div>
+                <div class="field">
+                        
+                        <input name="utype" type="hidden" value="1">
+                    </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Cancel
+            </div>
+            <button type="submit" class="ui positive right button">
+                Submit
+            </button>
+        </div>
+    </form>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="public/semantic.min.js"></script>
+<script>
+    $('#login').modal('hide');
+    $('#login-button').click(function () {
+        $('#login').modal('show');
+    });
+    $('#recruiter').modal('hide');
+    $('#recruiter-b').click(function () {
+        $('#recruiter').modal('show');
+    });
+    $('#freelancer').modal('hide');
+    $('#freelancer-b').click(function () {
+        $('#freelancer').modal('show');
+    });
+</script>
+
+</html>

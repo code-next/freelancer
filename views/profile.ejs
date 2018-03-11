@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="public/semantic.min.css">
+    <link rel="stylesheet" href="public/style.css">
+    <title>Profile</title>
+</head>
+
+<body>
+    <div class="ui grid">
+        <div class="sixteen wide column">
+            <div class="ui menu">
+                <h1 class="ui header" id="siteheading">E-Lance</h1>
+                <div class="right menu">
+                    <% if(this.user != freelancer.username) { %>
+                        <a class="item" id="review-button">Post A Review</a>
+                        <% } %>
+                            <a class="item" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui grid">
+        <div class="sixteen wide column">
+            <h1>Name:
+                <%= freelancer.name %>
+            </h1>
+            <h1>Address:
+                <%= freelancer.address %>
+            </h1>
+            <h1>Pincode:
+                <%= freelancer.pincode %>
+            </h1>
+            <h1>Phone Number:
+                <%= freelancer.phonenumber %>
+            </h1>
+        </div>
+    </div>
+    <h2 class="ui header review-title">Reviews</h2>
+    <div class="ui grid">
+        
+        <% ratings.forEach(function(rating){ %>
+            <div class="four wide cloumn">
+                <div class="ui card">
+                    <div class="content">
+                        <div class="header">
+                            <%= rating.title %>
+                        </div>
+                        <div class="meta">
+                            <span><%= rating.recruiter %></span>
+                            <span>
+                               
+                                <div class="ui star rating" data-rating="<%= rating.rating %>" data-max-rating="5"></div>
+                                
+                            </span>
+                        </div>
+                        <p>
+                            <%= rating.review %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+    <!--form -->
+    <form class="ui small modal form" id="review" method="POST" action="/review">
+        <i class="close icon"></i>
+        <div class="header">
+            Review
+        </div>
+        <div class="image content">
+            <div class="description">
+                <div class="field">
+                    <label>Title</label>
+                    <input name="title" type="text" placeholder="Expert in python">
+                </div>
+                <div class="field">
+                    <label>Rating</label>
+                    <input name="rating" type="number" placeholder="2">
+
+                </div>
+                <div class="field">
+                    <label>Review</label>
+                    <input name="review" type="text" placeholder="He is a expert in python">
+
+                </div>
+                <div class="field">
+                    <input name="freelancer" type="hidden" value="<%=freelancer.username %>">
+
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Cancel
+            </div>
+            <button type="submit" class="ui positive right button">
+                Submit
+            </button>
+        </div>
+    </form>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="public/semantic.min.js"></script>
+<script>
+    $('#review').modal('hide');
+    $('#review-button').click(function () {
+        $('#review').modal('show');
+    });
+</script>
+<script>
+        $('.rating')
+         .rating();
+                    
+    </script>
+
+</html>
